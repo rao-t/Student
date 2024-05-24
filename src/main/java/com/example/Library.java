@@ -1,6 +1,6 @@
 package com.example;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 
 public class Library {
     private Student student;
@@ -10,17 +10,17 @@ public class Library {
         this.student = student;
     }
 
-    // Setter Injection
-    @Autowired
-    public void setStudent(Student student) {
-        this.student = student;
-    }
+    
+    // @Autowired
+    // public void setStudent(Student student) {
+    //     this.student = student;
+    // }
 
-    public Student getStudent() {
-        return student;
-    }
+    // public Student getStudent() {
+    //     return student;
+    // }
 
     public void issueBook() {
-        System.out.println("Issuing book for student: " + "Id: " + student.getId() +", Name: "+ student.getName());
+        System.out.println("\nIssuing book for student: " + "Id: " + student.getId() +", Name: "+ student.getName());
     }
 }

@@ -4,13 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="studentBean" class="com.example.Student" scope="prototype">
-         <property name="id" value="2"/>
+    <bean id="studentBean" class="com.example.Student">
+         <property name="id" value="1"/>
          <property name="name" value="Tejaswini"/>
-       
     </bean>
 
-    <bean id="library" class="com.example.Library" >
-        <constructor-arg ref="studentBean"/>
+    
+    <bean id="laboratory" class="com.example.Laboratory">
+        <property name="student" ref="studentBean"/>
     </bean>
 </beans>

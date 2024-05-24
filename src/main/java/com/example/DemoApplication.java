@@ -1,22 +1,25 @@
 package com.example;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DemoApplication {
 
-	
 		public static void main(String[] args) {
 			
-			ApplicationContext xmlContext = new ClassPathXmlApplicationContext("beans.xml");
-			 
-			Library libraryXml = (Library) xmlContext.getBean("library");
-			libraryXml.issueBook();
+			ConfigurableApplicationContext xmlContext = new ClassPathXmlApplicationContext("beans.xml");
+			Laboratory laboratory =  xmlContext.getBean("laboratory", Laboratory.class);
+			System.out.println(laboratory.toString()); 
 
-			ApplicationContext javaContext = new AnnotationConfigApplicationContext(Config.class);
+
+			ConfigurableApplicationContext javaContext = new AnnotationConfigApplicationContext(Config.class);
 			Library libraryJava= javaContext.getBean(Library.class);
 			libraryJava.issueBook();
+
+			xmlContext.close();
+			javaContext.close();
+			
     }
 }
 
